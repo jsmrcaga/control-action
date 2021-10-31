@@ -1,6 +1,10 @@
-name: Control Flow
+name: Control Graphs Executor
 author: Jo Colina <jo@jocolina.com>
 description: Runs a Control flow configuration
+
+branding:
+  color: purple
+  icon: git-merge
 
 runs:
   # Using docker until GitHub fully supports
