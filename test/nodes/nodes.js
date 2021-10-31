@@ -7,7 +7,7 @@ class TestNode extends Node {
 	run() {
 		return new Promise((resolve, reject) => {
 			const { message='Graph running' } = this.config;
-			return ChildProcess.exec(`echo "::debug::${message}"`, (err, stdout, stderr) => {
+			return Process.exec(`echo "::debug::${message}"`, (err, stdout, stderr) => {
 				if(err) {
 					return reject(err);
 				}
