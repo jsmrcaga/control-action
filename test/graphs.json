@@ -1,0 +1,29 @@
+[{
+	"name": "Test graph",
+	"id": "test-graph",
+	"nodes": [{
+		"id": 1,
+		"type": "test-node",
+		"config": {
+			"message": "This is a test message"
+		}
+	}, {
+		"id": 2,
+		"type": "noop"
+	}, {
+		"id": 3,
+		"type": "noop"
+	}, {
+		"id": 4,
+		"type": "noop"
+	}, {
+		"id": 5,
+		"type": "noop"
+	}],
+	"edges": [
+		{ "from": 1, "to": 2 },
+		{ "from": 2, "to": 3 },
+		{ "from": 2, "to": 4 },
+		{ "from": 4, "to": 5 }
+	]
+}]

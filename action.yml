@@ -1,0 +1,46 @@
+name: Control
+author: Jo Colina <jo@jocolina.com>
+description: Runs a Control flow configuration
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v2
+      name: Setup node 16
+      with:
+        node-version: 16
+
+    - name: Install Control dependencies
+      run: |
+        if [echo ${{ inputs.global }} | grep -c true] || [echo ${{ inputs.install_control }} | grep -c true]
+        then
+          npm i control-core
+        fi
+      shell: bash
+
+    # TODO: change control-core to @control/core once NPM
+    # answers our claim to control org
+    - name: Execute Control flows
+      shell: bash
+      run: |
+        if [echo ${{ inputs.global }} | grep -c true] || [echo ${{ inputs.install_control }} | grep -c true]
+        then
+          npx control-core -c ${{ inputs.config }}
+        else
+          ./node_modules/.bin/control -c ${{ inputs.config }}
+        fi
+
+inputs:
+  config:
+    description: Configuration file for Control
+    required: true
+
+  global:
+    description: Run Control CLI from globally installed module (your project does not need Control as a dependency)
+    required: false
+    default: false
+
+  install_control:
+    description: Override to install Control dependency manually anyways
+    required: false
+    default: false

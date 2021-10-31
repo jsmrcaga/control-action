@@ -1,0 +1,22 @@
+name: Test Graph Execution
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  run_flow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull code
+        uses: actions/checkout@master
+
+      - name: Run Flow
+        uses: ./
+        with:
+          config: ./test/config.json
+          install_control: true
