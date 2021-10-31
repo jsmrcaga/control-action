@@ -3,6 +3,8 @@ author: Jo Colina <jo@jocolina.com>
 description: Runs a Control flow configuration
 
 runs:
+  # Using docker until GitHub fully supports
+  # conditional expressions on composite actions
   using: docker
   image: Dockerfile
 
