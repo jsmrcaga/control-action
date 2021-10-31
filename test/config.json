@@ -1,0 +1,5 @@
+{
+	"nodes": "./test/nodes",
+	"graphs": "./test/graphs.json",
+	"threads": 1	
+}
